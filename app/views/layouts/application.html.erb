@@ -35,10 +35,12 @@
 
   <div id="main_content">
     <div id="header">
-      <% if current_page?(root_path) %>
-      <p>All Posts</p>
+      <% if current_page?(root_path) && user_signed_in? %>
+      <p>Welcome, <%= current_user.email %>!</p>
         <% elsif current_page?(about_path) %>
         <p>About</p>
+        <% elsif current_page?(root_path) && !user_signed_in? %>
+        <p>All Posts</p>
         <% else %>
         <%= link_to "Back to All Posts", root_path %>
       <% end %>
