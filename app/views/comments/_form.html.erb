@@ -1,12 +1,12 @@
 <%= form_for([@post, @post.comments.create]) do |f| %>
   <p>
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "Please put your name here..." %>
   </p>
 
   <p>
     <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, placeholder: "Please put your comment here..." %>
   </p>
 
   <br>
