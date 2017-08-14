@@ -4,7 +4,7 @@
   </h1>
 
   <p class="date">
-    Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= current_user.email %>
+    Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.email %>
     <% if user_signed_in? && current_user.id == @post.user_id %>
     | <%= link_to 'Edit', edit_post_path(@post) %>
     | <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?'} %>
