@@ -1,0 +1,18 @@
+<% if @comment.errors.any? %>
+<div id="errors">
+  <h2><%= pluralize(@comment.errors.count, "error") %> prevented this comment from saving</h2>
+  <ul>
+    <% @comment.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<!-- <% if flash[:errors] %>
+  <ul>
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %> -->
