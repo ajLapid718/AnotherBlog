@@ -1,6 +1,6 @@
 <div id="post_content">
   <h1 class ="title">
-    <%= @post.title %>
+    <u><%= @post.title %></u>
   </h1>
 
   <p class="date">
@@ -14,7 +14,7 @@
     <% end %>
   </p>
 
-  <p class="body">
+  <p class="body" style="white-space: pre-line;">
     <%= @post.body %>
   </p>
 
