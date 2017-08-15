@@ -126,17 +126,18 @@ a {
 			color: #9eafba;
 			text-decoration: none;
 		}
-		// .facebook {
-		// 	float: right;
-		// 	padding: inherit;
-		// 	margin: inherit;
-		// }
 		.buttons {
 			float: right;
 			margin-top: -6px;
 			.button {
 				font-size: .8em;
 				margin-left: .5em;
+			}
+			.facebook {
+				width: auto;
+				height: 15px;
+				padding: 5px;
+				margin: auto;
 			}
 		}
 	}
