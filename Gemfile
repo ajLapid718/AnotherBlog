@@ -6,7 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 gem 'jquery-rails'
-gem 'kaminari'
 
 
 gem 'devise', '~> 4.3'
