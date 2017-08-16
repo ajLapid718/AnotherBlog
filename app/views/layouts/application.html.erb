@@ -3,8 +3,8 @@
   <head>
     <title>Bloggah</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="/assets/ubecon.jpg" rel="shortcut icon" type="image/x-icon">
     <!-- <%= favicon_link_tag 'ubecon.jpg' %> -->
@@ -14,35 +14,35 @@
       <div id="logo">
         <%= link_to root_path do %>
           <%= image_tag "ubecon.jpg" %>
-          <% end %>
-        </div>
+        <% end %>
+      </div>
 
-    <ul>
-      <li class="category">Website</li>
-      <li><%= link_to "Blog", root_path %></li>
-      <li> <%= link_to "About", about_path %></li>
-    </ul>
+      <ul>
+        <li class="category">Website</li>
+        <li><%= link_to "Blog", root_path %></li>
+        <li> <%= link_to "About", about_path %></li>
+      </ul>
 
-    <ul>
-      <li class="category">Blogging Websites</li>
-      <li><a href="http://www.tumblr.com">Tumblr</a></li>
-      <li><a href="http://www.xanga.com">Xanga</a></li>
-      <li><a href="http://www.blogger.com">Blogger</a></li>
-      <li><a href="http://www.wordpress.com">Wordpress</a></li>
-      <li><a href="http://www.medium.com">Medium</a></li>
-    </ul>
-  </div>
+      <ul>
+        <li class="category">Blogging Websites</li>
+        <li><a href="http://www.tumblr.com">Tumblr</a></li>
+        <li><a href="http://www.xanga.com">Xanga</a></li>
+        <li><a href="http://www.blogger.com">Blogger</a></li>
+        <li><a href="http://www.wordpress.com">Wordpress</a></li>
+        <li><a href="http://www.medium.com">Medium</a></li>
+      </ul>
+    </div>
 
   <div id="main_content">
     <div id="header">
       <% if current_page?(root_path) && user_signed_in? %>
-      <p>Welcome, <%= current_user.name %>!</p>
-        <% elsif current_page?(about_path) %>
-        <p>About</p>
-        <% elsif current_page?(root_path) && !user_signed_in? %>
-        <p>All Posts</p>
-        <% else %>
-        <%= link_to "Back to All Posts", root_path %>
+          <p>Welcome, <%= current_user.name %>!</p>
+          <% elsif current_page?(about_path) %>
+          <p>About</p>
+          <% elsif current_page?(root_path) && !user_signed_in? %>
+          <p>All Posts</p>
+          <% else %>
+          <%= link_to "Back to All Posts", root_path %>
       <% end %>
 
     <% if user_signed_in? %>
@@ -54,33 +54,32 @@
     <% end %>
 
     <% if !user_signed_in? %>
-      <div class="buttons">
-        <form action="<%= new_user_session_path %>" method="post">
-            <input
-              type="hidden"
-              name="authenticity_token"
-              value="<%= form_authenticity_token %>">
-        <p>
-          Email
-            <input class="facebook" type="text" name="user[email]">
-        </p>
+    <div class="buttons">
+      <button class="button"><%= link_to "Sign Up", new_user_registration_path %></button>
+    </div>
+    <% end %>
 
-        <p>
-          Password
-            <input class="facebook" type="password" name="user[password]">
-        </p>
+    <% if !user_signed_in? %>
+    <div class="buttons">
+    <form action="<%= new_user_session_path %>" method="post">
+        <input
+          type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>">
+    <p>Email <input class="facebook" type="text" name="user[email]"></p>
+    <p>Password <input class="facebook" type="password" name="user[password]"></p>
         <button class="button">Log In</button>
-        <button class="button"><%= link_to "Sign Up", new_user_registration_path %></button>
-        </form>
-      </div>
+    </form>
     <% end %>
   </div>
+</div>
+
 
   <% flash.each do |name, msg| %>
     <%= content_tag(:div, msg, class: "alert") %>
   <% end %>
-      <%= yield %>
-  </div>
 
+      <%= yield %>
+    </div>
   </body>
 </html>
