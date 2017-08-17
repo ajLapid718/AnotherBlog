@@ -289,7 +289,13 @@ div#error_explanation {
 	}
 }
 
-.pagination a, .pagination span.current, .pagination span.gap {
+.pagination {
+	display: inline-block;
+}
+
+.pagination a, .pagination span.current {
+		// font-family: serif;
+		font-size: 15px;
     float: left;
     padding: 0 14px;
     line-height: 38px;
@@ -297,33 +303,9 @@ div#error_explanation {
     background-color: white;
     border: 1px solid #DDD;
     border-left-width: 0;
+		// border-radius: 5px;
 }
 
-.pagination {
-    border-left: 1px solid #ddd;
-    .first{
-        padding : 0;
-        float: none;
-        border: none;
-    }
-    .prev {
-        padding : 0;
-        float: none;
-        border: none;
-    }
-    .page{
-        padding : 0;
-        float: none;
-        border: none;
-    }
-    .next{
-        padding : 0;
-        float: none;
-        border: none;
-    }
-    .last{
-        padding : 0;
-        float: none;
-        border: none;
-    }
+.pagination a:hover {
+	background-color: #ddd;
 }
