@@ -15,6 +15,10 @@
         <%= link_to root_path do %>
           <%= image_tag "ubecon.jpg" %>
         <% end %>
+        <%= form_tag(posts_path, method: :get) do %>
+          <%= text_field_tag :term, params[:term] %>
+          <%= submit_tag 'Search', name: nil %>
+        <% end %>
       </div>
 
       <ul>

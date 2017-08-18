@@ -8,4 +8,6 @@
   </div>
 <% end %>
 
-<%= paginate(@posts) %>
+<% if !params[:term] %>
+  <%= paginate(@posts) %>
+<% end %>
