@@ -15,10 +15,6 @@
         <%= link_to root_path do %>
           <%= image_tag "ubecon.jpg" %>
         <% end %>
-        <%= form_tag(posts_path, method: :get) do %>
-          <%= text_field_tag :term, params[:term] %>
-          <%= submit_tag 'Search', name: nil %>
-        <% end %>
       </div>
 
       <ul>
@@ -65,7 +61,7 @@
 
     <% if !user_signed_in? %>
     <div class="buttons">
-    <form action="<%= new_user_session_path %>" method="post">
+    <form action="<%= new_user_session_path %>" method="POST">
         <input
           type="hidden"
           name="authenticity_token"
@@ -76,6 +72,15 @@
     </form>
   </div>
     <% end %>
+
+    <% if user_signed_in? %>
+    <div class="buttons">
+      <form action="<%= posts_path %>" method="GET">
+        <input class="facebook" type="text" name="<%= :term %>" value="<%= params[:term] %>" placeholder="Search">
+      </form>
+    </div>
+    <% end %>
+
   </div>
 
 
