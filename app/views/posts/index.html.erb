@@ -2,7 +2,7 @@
   <div class="post_wrapper">
     <h2 class="title"><%= link_to post.title, post %></h2>
     <p class="date">
-      Author: <%= post.user.name %><br>
+      Author: <%= link_to post.user.name, user_posts_path(post.user), :style=>'color: #4d94ff;' %><br>
       Date: <%= post.created_at.strftime("%B, %d, %Y") %>
     </p>
   </div>
