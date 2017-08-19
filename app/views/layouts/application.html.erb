@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="/assets/ubecon.jpg" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <%= favicon_link_tag 'ubecon.jpg' %> -->
   </head>
   <body>
@@ -45,7 +46,9 @@
           <% elsif current_page?(root_path) && !user_signed_in? %>
           <p>All Posts</p>
           <% else %>
-          <%= link_to "Back to All Posts", root_path %>
+          <%= link_to root_path do %>
+            <i style="font-size:16px" class="fa">&#xf177;</i> Back to All Posts
+          <% end %>
       <% end %>
 
     <% if user_signed_in? %>
@@ -79,7 +82,7 @@
     <% if user_signed_in? %>
     <div class="buttons">
       <form action="<%= posts_path %>" method="GET">
-        <input class="facebook" type="text" name="<%= :term %>" value="<%= params[:term] %>" placeholder="Search">
+        <input class="search-bar" type="text" name="<%= :term %>" value="<%= params[:term] %>" placeholder="Search">
       </form>
     </div>
     <% end %>
