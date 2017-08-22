@@ -7,6 +7,7 @@ end
 
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'acts-as-taggable-on'
 
 gem 'devise', '~> 4.3'
 gem 'coffee-script-source', '1.8.0'

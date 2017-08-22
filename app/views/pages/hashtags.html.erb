@@ -1,0 +1,16 @@
+<div class="container">
+			<header class="the-header-part">
+				<h1>Tagged Topics</h1>
+			</header>
+
+  <div class="grid">
+
+    <div id="tag_cloud">
+      <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
+      #<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>

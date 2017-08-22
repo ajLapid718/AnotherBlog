@@ -48,6 +48,26 @@ div#error_explanation {
 	color: red;
 }
 
+#tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
+
+a.s {
+	color: lightskyblue;
+}
+
+a.m {
+	color: deepskyblue;
+}
+
+a.l {
+	color: blue;
+}
+
 #sidebar {
 	width: 250px;
 	position: fixed;
@@ -468,4 +488,8 @@ figure.cool-effect:hover p {
 
 input:focus::-webkit-input-placeholder {
     opacity: 0;
+}
+
+.grid {
+    text-align: -webkit-center;
 }

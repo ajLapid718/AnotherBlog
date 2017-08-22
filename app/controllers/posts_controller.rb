@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   def index
     @posts = if params[:term]
       Post.where('title LIKE?', "%#{params[:term]}%").order('id DESC')
+    elsif params[:tag]
+      @posts = Post.tagged_with(params[:tag])
     else
       @posts = Post.order('created_at DESC').page(params[:page]).per(3)
     end
@@ -52,6 +54,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :body, :term)
+      params.require(:post).permit(:title, :body, :term, :tag_list)
     end
 end
