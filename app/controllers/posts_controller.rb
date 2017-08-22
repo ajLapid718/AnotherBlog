@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = if params[:term]
-      Post.where('title LIKE?', "%#{params[:term]}%").order('id DESC')
+      Post.where('title ILIKE?', "%#{params[:term]}%").order('id DESC')
     elsif params[:tag]
       @posts = Post.tagged_with(params[:tag])
     else
